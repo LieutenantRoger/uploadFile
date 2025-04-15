@@ -5,6 +5,19 @@ node: v16.20.0
 
 npm: v8.19.4
 
+# Supported Commands:
+
+* npm start
+    - trigger the simulation usage of the uploadBigFile component in success and cancel scenario
+* npm run start_success
+    - trigger the simulation usage of the uploadBigFile component in success scenario
+* npm run start_cancel
+    - trigger the simulation usage of the uploadBigFile component in cancel scenario
+* npm test
+    - trigger the unit test to the uploadBigFile component
+* npm run coverage
+    - trigger the unit test and generate the coverage for the uploadBigFile component
+
 # Description:
 
 The index.ts contains the detail implemenation regarding how the uploadBigFile compnoent works.
@@ -57,7 +70,7 @@ Upload progress: 0.08%
 Upload canceled
 ```
 
-# Code
+# Code Instruction
 
 1. index.ts: This file contains the actual code regarding how the upload file component is implemented.
 2. main_success.ts: This is a code file which is able to trigger a file upload success test.
@@ -103,3 +116,65 @@ Upload failed: Chunk 4 upload failed
 
 You could also simply switch to branch `fix/fail_scenario` and execute `npm run main_success` command to trigger the failed test scenario as well.
 
+
+# Unit Test
+
+The code has added unit test to the uploadBigFile component.
+
+You can run the command: `npm run test` to trigger the mocha unit test: You should see something like below:
+
+```
+$ npm run test
+
+> test_uploadfile@1.0.0 test
+> mocha -r ts-node/register "test/*.spec.ts"
+
+
+
+  uploadChunk function
+    √ should upload a chunk successfully (1005ms)
+    √ should cancel the upload (201ms)
+
+  uploadBigFile function
+    √ should start uploading and call onProgress (1002ms)
+    √ should stop uploading
+    √ should continue uploading after stopping (1001ms)
+    √ should cancel uploading (502ms)
+
+
+  6 passing (4s)
+```
+
+
+The code has also added coverage generation, 
+
+You can run the command: `npm run coverage` to generate the code coverage: You should see something like below:
+```
+$ npm run coverage
+
+> test_uploadfile@1.0.0 coverage
+> nyc -r lcov -e .ts -x "*.test.ts" npm run test
+
+
+> test_uploadfile@1.0.0 test
+> mocha -r ts-node/register "test/*.spec.ts"
+
+
+
+  uploadChunk function
+    √ should upload a chunk successfully (1005ms)
+    √ should cancel the upload (203ms)
+
+  uploadBigFile function
+    √ should start uploading and call onProgress (1002ms)
+    √ should stop uploading
+    √ should continue uploading after stopping (1000ms)
+    √ should cancel uploading (502ms)
+
+
+  6 passing (4s)
+```
+
+Open the root/coverage/lcov-report/index.html file, you can see the coverage for the uploadBigFile component:
+
+![coverage](./demo_snapshot.png)

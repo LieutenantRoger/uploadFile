@@ -7,7 +7,8 @@
     "start": "npm run start_success && npm run start_cancel",
     "start_success": "npx ts-node --esm main_success.ts",
     "start_cancel": "npx ts-node --esm main_cancelled.ts",
-    "test": "mocha -r ts-node/register \"test/*.spec.ts\""
+    "test": "mocha -r ts-node/register \"test/*.spec.ts\"",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "axios": "^1.8.4",
     "chai": "^4.2.0",
     "mocha": "^11.1.0",
+    "nyc": "^17.1.0",
     "sinon": "^20.0.0",
     "ts-mocha": "^11.1.0",
     "ts-node": "^10.9.2",
