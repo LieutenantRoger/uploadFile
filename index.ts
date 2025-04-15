@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 // 自定义取消错误类
 export class CancelError extends Error {
     constructor(message: string) {
