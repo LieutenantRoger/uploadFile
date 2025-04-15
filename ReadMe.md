@@ -7,7 +7,9 @@ npm: v8.19.4
 
 # Description:
 
-The code is simulating the file upload steps using a setInterval to increase the count from 0 to 100, so to indicate a chunk file is uploaded successfully.
+The index.ts contains the detail implemenation regarding how the uploadBigFile compnoent works.
+
+Since we don't have a sever to upload a big file. The implemenation is simulating the big file upload process using a `setInterval` to increase the count from 0 to 100 for invidial file chunk, eventually demostrate how to upload a big file with multiple chunks.
 
 # Deployment and verification:
 
