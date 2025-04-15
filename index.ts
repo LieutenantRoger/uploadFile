@@ -29,8 +29,8 @@ const uploadChunk = ({ chunk, onProgress }: { chunk: any; onProgress: (progress:
             if (progress >= 100) {
                 clearInterval(timer);
                 // To test the failed scenario - comment out line#32, and uncomment line#33
-                // resolve(`Chunk ${chunk.index} uploaded`);
-                reject(`Chunk ${chunk.index} upload failed`);
+                resolve(`Chunk ${chunk.index} uploaded`);
+                // reject(`Chunk ${chunk.index} upload failed`);
             }
         }, 200);
     });
