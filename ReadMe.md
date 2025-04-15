@@ -101,3 +101,5 @@ Upload failed: Chunk 4 upload failed
 
 ```
 
+You could also simply switch to branch `fix/fail_scenario` and execute `npm run main_success` command to trigger the failed test scenario as well.
+
