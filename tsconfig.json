@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "Node16",
+        "moduleResolution": "Node16",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "lib": ["es2018", "dom", "esnext"],
+        "outDir": "./dist",
+        "allowImportingTsExtensions": true,
+        "noEmit": true
+    },
+    "include": ["index.ts", "test/**/*.ts", "main_success.ts"]
+}
